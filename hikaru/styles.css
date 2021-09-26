@@ -1,0 +1,113 @@
+/* GOBAN STYLE*/
+.shudan-goban-image {
+    background-image: url('board.svg');
+    background-repeat: none;
+    background-size: cover;
+}
+
+.shudan-goban {
+    --shudan-board-border-width: 0px; 
+    --shudan-board-foreground-color: #00050;
+    --shudan-board-background-color: #fff;
+
+    --shudan-black-foreground-color: #eee;
+    --shudan-white-foreground-color: #111;
+    }
+
+.shudan-goban:not(.shudan-coordinates) {padding: 0;}
+
+/* give the goban a bigger box shadow */
+#goban {box-shadow: 0 0 1em rgba(0,0,0, 1)}
+
+/* GRIDLINES & HOSHI */
+/* thicker lines with emboss */
+.shudan-horizontal { 
+    height: 0.03em;  
+}
+.shudan-vertical   { 
+    width: 0.03em;
+}
+.shudan-grid{
+    filter: drop-shadow(1px 1px 1px rgba(255,255,255,0.4));
+}
+.shudan-gridline {
+    fill: rgb(76, 47, 0, 0.8);
+}
+
+/* smaller hoshi */
+.shudan-hoshi { r: .065em; } 
+
+
+/* COORDINATES */
+/* smaller, */
+.shudan-coordx div span {font-size: 0.4em; }
+.shudan-coordy div span {font-size: 0.4em; }
+
+
+/* BACKGROUND IMAGE*/
+/* just black */
+#main main {
+    background-image: none;
+    background-color: #222;
+}
+
+
+/* STONES */
+.shudan-stone-image:not(.shudan-sign_0){
+}
+
+.shudan-stone-image.shudan-sign_1, .shudan-stone-image.shudan-sign_-1 { 
+     width: 1em; height: 1.09em; top: -0.03em; left: -0.03em;
+}
+
+.shudan-stone-image.shudan-sign_-1 {background-image: url('white_stone.svg');}
+
+.shudan-stone-image.shudan-sign_1 {background-image: url('black_stone.svg');}
+
+
+/* no shade */
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {
+    background: none;
+    box-shadow: none;
+}
+
+/* ANIMATIONS */
+/* make the markers wait until stone arrives*/
+@keyframes marker-wait {
+    from {opacity: 0;}
+}
+
+/* move in stones from black or white player */
+@keyframes stone-drop-black {
+  from { transform: scale(1.0, 1.5) translate(2em,8em); }
+  opacity: 0.2;
+}
+
+@keyframes stone-drop-white {
+  from { 
+  transform: scale(1.0,  1.5) translate(-2em, -8em); 
+  opacity: 0.2;
+  }
+}
+
+.shudan-shadow.shudan-sign_1,
+.shudan-stone-image.shudan-stone-image.shudan-sign_1 {
+  animation-name: stone-drop-black;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-in; 
+}
+
+.shudan-shadow.shudan-sign_-1,
+.shudan-stone-image.shudan-stone-image.shudan-sign_-1 {
+  animation-name: stone-drop-white;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-in;
+}
+
+/* correct for marks showing up early */
+.shudan-marker {
+    animation-name: marker-wait;
+    animation-duration: 0.2s;
+    animation-timing-function: step-end;
+}
+

@@ -1,0 +1,89 @@
+.shudan-stone-image.shudan-sign_1 {
+    width: 200%; height: 200%; top: -10%; left: -10%; background-image: url('glass_black.png');
+    pointer-events: none;
+    
+}
+.shudan-stone-image.shudan-sign_-1 {
+    width: 198%; height: 198%; top: -10%; left: -10%; background-image: url('glass_white.png');
+    /* border-style: solid; */
+    pointer-events: none;
+    } 
+/* .shudan-stone-image.shudan-sign_-1.shudan-random_1 {background-image: url('2.png');} */
+/* .shudan-stone-image.shudan-sign_-1.shudan-random_2 {background-image: url('3.png');} */
+/* .shudan-stone-image.shudan-sign_-1.shudan-random_3 {background-image: url('4.png');} */
+/* .shudan-stone-image.shudan-sign_-1.shudan-random_4 {background-image: url('5.png');} */
+.shudan-vertex .shudan-stone {top: 0; left: 0; width: 100%; height: 100%; }
+.shudan-goban {
+    --shudan-board-border-width: 0; 
+    --shudan-board-foreground-color: #3c392f;
+
+    --shudan-black-foreground-color: #d87700;
+    --shudan-white-foreground-color: #fb8a00;
+    }
+.shudan-goban:not(.shudan-coordinates) {padding: 0;}
+.shudan-goban-image {background-image: url('goban_texture_fancy_orange.png');}
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {background: none; box-shadow: none;}
+#goban {box-shadow: none;}
+
+/* thicker lines with emboss */
+.shudan-horizontal { height: 1px;  }
+.shudan-vertical   { width: 1px; } 
+.shudan-grid{
+    filter: drop-shadow(0.02em -0.01em 0.02em rgba(220,255,220, 0.3));
+}
+.shudan-gridline {
+    fill: rgba(107, 66, 1, 1);
+}
+
+.shudan-hoshi {r: 2px; }
+
+
+/* stone "ambient occlusion" effect */
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {
+    background: none;
+    /* pretty, but slow` */
+    border-radius: 50%;
+    box-shadow: 0px 0px 1em 0em rgba(80, 65, 0, 0.35);
+    /* box-shadow: none; */
+    pointer-events: none;
+}
+
+
+/* COORDINATES */
+/* smaller, less contrast */
+.shudan-coordx span, .shudan-coordy span { color: rgba(107, 66, 1, 0.59)}
+.shudan-coordx div span {font-size: 0.4em; }
+.shudan-coordy div span {font-size: 0.4em; }
+
+#goban {box-shadow: 0 0 1em rgba(0,0,0, .8)}
+#main main {background-image: url('velvety.png');}
+.playercontent.player_1 {
+    background: rgb(212,212,212);
+    background: linear-gradient(90deg, #1d1f20 0%, #34344b 100%);
+}
+
+.playercontent.player_-1 {
+    background: rgb(212,212,212);
+    background: linear-gradient(90deg,  #34344b 0%, #1d1f20 100%);
+}
+
+/* red marker */
+.shudan-vertex.shudan-marker_point.shudan-sign_-1 .shudan-marker {background: #f00;}
+.shudan-vertex.shudan-marker_point.shudan-sign_1 .shudan-marker {background: #f00;}
+
+.shudan-gridline {box-shadow: 200px 2px;}
+
+
+@keyframes stone-drop {
+  0% { transform: scale(.2); }
+  78% {transform: scale(1.15); }
+  100% {transform: scale(1.0); }
+}
+
+
+.shudan-shadow.shudan-sign_1, .shudan-stone-image.shudan-stone-image.shudan-sign_-1,
+.shudan-stone-image.shudan-stone-image.shudan-sign_1 {
+  animation-name: stone-drop;
+  animation-duration: 0.1s;
+  animation-timing-function: ease-out; 
+}

@@ -1,0 +1,128 @@
+/* GOBAN STYLE*/
+/* kifu is what you'd want it to look like if it were printed in a book. */
+/* unfortunately, the board border cannot be thickened with Sabaki CSS */
+
+.shudan-goban-image {background-image: none }
+.shudan-goban {
+    --shudan-board-border-width: 0px; 
+    --shudan-board-foreground-color: #000;
+    --shudan-board-background-color: #fff;
+
+    --shudan-black-foreground-color: #fff;
+    --shudan-black-background-color: #000;
+    --shudan-white-foreground-color: #000;
+    --shudan-white-background-color: #fff;
+    }
+.shudan-goban:not(.shudan-coordinates) {padding: 0;}
+
+.shudan-goban:after { background: transparent;}
+
+/* give the goban a bigger box shadow */
+/* #goban {box-shadow: 0 0 1em rgba(0,0,0, .8)} */
+
+/* on second thought, no shadow for easy screenshotting */
+#goban {box-shadow: none;}
+
+/* GRIDLINES & HOSHI */
+/* thicker lines */
+.shudan-horizontal { height: 0.03em;  }
+.shudan-vertical   { width: 0.03em;   }
+
+
+/* smaller hoshi */
+.shudan-hoshi { r: .065em; } 
+
+
+/* COORDINATES */
+/* smaller, */
+.shudan-coordx div span {font-size: 0.4em; }
+.shudan-coordy div span {font-size: 0.4em; }
+
+
+/* BACKGROUND IMAGE*/
+/* just white */
+#main main {
+    background-image: none;
+    background-color: #fff;
+}
+
+/* STONES, which are basic circles */
+.shudan-vertex .shudan-stone {
+    width: calc(100% -3pt);
+    height: calc(100% -3pt);
+}
+.shudan-stone-image:not(.shudan-sign_0){
+    background-image: none;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1.5pt;
+    top: -1.5pt;
+    left: -1.5pt;
+     width: calc(100% - 0pt);
+    height: calc(100% - 0pt);
+}
+
+.shudan-stone-image.shudan-sign_1 { 
+    background-color: #000;
+}
+
+.shudan-stone-image.shudan-sign_-1 { 
+    background-color: #fff;
+}    
+
+/* no shade */
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {
+    background: none;
+    box-shadow: none;
+}
+
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {
+background: none; box-shadow: none;
+    border-radius: none;
+    z-index: -10;
+}
+
+/* "try" to fix ugly triangle position */
+
+.shudan-marker_triangle>.shudan-marker {
+        transform: translate(0%, -6%)
+}
+
+/* next move marker (for white) */
+.shudan-vertex.shudan-ghost_-1 .shudan-ghost::before {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.5pt;
+}
+
+.shudan-vertex.shudan-heat_9 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em black
+}
+.shudan-vertex.shudan-heat_8 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #111
+}
+.shudan-vertex.shudan-heat_7 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #444
+}
+.shudan-vertex.shudan-heat_6 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #555
+}
+.shudan-vertex.shudan-heat_5 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #666
+}
+.shudan-vertex.shudan-heat_4 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #777
+}
+.shudan-vertex.shudan-heat_3 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #888
+}
+.shudan-vertex.shudan-heat_2 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #999
+}
+.shudan-vertex.shudan-heat_1 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #aaa
+}
+.shudan-vertex.shudan-heat_0 .shudan-heat {
+    box-shadow: 0 0 0.75em 0.4em #bbb
+}

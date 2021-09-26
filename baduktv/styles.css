@@ -1,0 +1,154 @@
+/* BadukTV styles for the Sabaki Go App */
+
+/* GOBAN STYLE*/
+.shudan-goban-image {
+    background-image: url('goban_texture_smooth.png');
+    background-size: cover;
+    background-repeat: no-repeat;    
+    }
+.shudan-goban {
+    --shudan-board-border-width: 0; 
+    --shudan-board-foreground-color: #3c392f;
+    --shudan-board-background-color: none;
+
+    --shudan-black-foreground-color: rgba(255,255,255, 0.75);
+    --shudan-white-foreground-color: rgba(0,0,0, 0.75);
+    }
+.shudan-goban:not(.shudan-coordinates) {padding: 0;}
+
+
+/* give the goban a bigger box shadow */
+
+#goban {box-shadow: 0 0 1em rgba(0,0,0, .8)}
+
+/* GRIDLINES & HOSHI */
+/* thicker lines with emboss */
+.shudan-horizontal { height: 0.03em;  }
+.shudan-vertical   { width: 0.03em;   } 
+.shudan-grid{
+    filter: drop-shadow(0.02em -0.01em 0.02em rgba(220,255,220, 0.3));
+}
+
+/* smaller hoshi */
+.shudan-hoshi { r: .065em; } 
+
+
+/* COORDINATES */
+/* smaller, less contrast */
+.shudan-coordx span, .shudan-coordy span { color: rgba(107, 66, 1, 0.59)}
+.shudan-coordx div span {font-size: 0.4em; }
+.shudan-coordy div span {font-size: 0.4em; }
+
+
+/* BACKGROUND IMAGE*/
+/* simple sporty looking diagonals in the baduk broadcast style */
+#main main {
+    background-image: url('baduktvback.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* STONES */
+.shudan-stone-image.shudan-sign_1, .shudan-stone-image.shudan-sign_-1 { 
+     width: 127%; height: 127%; top: -14%; left: -16%;
+}
+
+/* Black gets a little wider to offset optical illusion of "skinny" */
+.shudan-stone-image.shudan-sign_1{ 
+    width: 130%; height: 127%; top: -14%; left: -14%;
+}
+
+/* black */
+.shudan-stone-image.shudan-sign_1 { 
+    background-image: url('glass_black2.png');
+}
+.shudan-stone-image.shudan-sign_1.shudan-random_1 {background-image: url('glass_black3.png');}
+.shudan-stone-image.shudan-sign_1.shudan-random_2 {background-image: url('glass_black2.png');}
+
+/* white */
+.shudan-stone-image.shudan-sign_-1 { 
+    background-image: url('glass_white3.png');
+} 
+.shudan-stone-image.shudan-sign_-1.shudan-random_1 {background-image: url('glass_white2.png');}
+.shudan-stone-image.shudan-sign_-1.shudan-random_2 {background-image: url('glass_white.png');}
+
+
+/* stone "ambient occlusion" effect */
+.shudan-vertex:not(.shudan-sign_0) .shudan-shadow {
+    background: none;
+    /* pretty, but slow` */
+    border-radius: 50%;
+    box-shadow: 0px 0px 1em 0em rgba(80, 65, 0, 0.35);
+    /* box-shadow: none; */
+    pointer-events: none;
+}
+
+
+/* LABELS AND STUFF */
+/* make latest move indicator red */
+.shudan-vertex.shudan-marker_point.shudan-sign_-1 .shudan-marker {
+    background: #b90202;
+    filter: drop-shadow(0px 0px 0.04em #b90202)
+}
+.shudan-vertex.shudan-marker_point.shudan-sign_1 .shudan-marker {
+    background: #b90202;
+    filter: drop-shadow(0px 0px 0.04em #b90202)
+}
+
+/* some glow for labels */
+/* disabled ATM because too blurry */
+/*
+.shudan-vertex .shudan-marker {
+    filter: drop-shadow(0px -1px 0.04em rgba(255,255,255, 1.0))
+}
+
+.shudan-vertex.shudan-sign_1 .shudan-marker {
+    filter: drop-shadow(0px -1px 0.04em rgba(255,255,255, 1.0))
+}
+
+.shudan-vertex.shudan-sign_-1 .shudan-marker {
+    filter: drop-shadow(0px -1px 0.04em rgba(0,0,0, 1.0))
+}
+*/
+
+/* ANIMATIONS */
+/* make the markers wait until stone arrives*/
+@keyframes marker-wait {
+    from {opacity: 0;}
+}
+
+/* move in stones from black or white player */
+@keyframes stone-drop-black {
+  from { transform: scale(1.0, 1.5) translate(2em,13em); }
+  opacity: 0.2;
+}
+
+@keyframes stone-drop-white {
+  from { 
+  transform: scale(1.0,  1.5) translate(-2em, -13em); 
+  opacity: 0.2;
+  }
+}
+
+/*
+.shudan-shadow.shudan-sign_1,
+.shudan-stone-image.shudan-stone-image.shudan-sign_1 {
+  animation-name: stone-drop-black;
+  animation-duration: 0.15s;
+  animation-timing-function: linear; 
+}
+
+.shudan-shadow.shudan-sign_-1,
+.shudan-stone-image.shudan-stone-image.shudan-sign_-1 {
+  animation-name: stone-drop-white;
+  animation-duration: 0.15s;
+  animation-timing-function: linear;
+}
+
+.shudan-marker {
+    animation-name: marker-wait;
+    animation-duration: 0.2s;
+    animation-timing-function: step-end;
+}
+*/
