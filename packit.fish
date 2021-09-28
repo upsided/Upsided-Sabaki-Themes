@@ -3,7 +3,7 @@
 # skip unneeded files when packing ASAR
 # run from project directory
 
-set -l themes baduktv baduktv-grunge happy-stones hikaru kifu
+set -l themes baduktv baduktv-animated baduktv-grunge happy-stones hikaru kifu
 
 for theme in $themes
     mkdir -p "packs/$theme" ; and \

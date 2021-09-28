@@ -30,6 +30,13 @@ Just like BadukTV, except the stones need washing.
 
 ![BadukTV Grunge Screenshot](./baduktv-grunge/baduktv-grunge-screenshot.jpg)
 
+## BadukTV (animated)
+As requested on Reddit, it's BadukTV, but with animated stone placement. 
+
+[Download](https://github.com/upsided/upsided-sabaki-themes/raw/main/packs/baduktv-animated.asar)
+
+![BadukTV Animated Screenshot](./baduktv/baduktv-screenshot.jpg)
+
 ## Kifu
 Nice for old-school diagrams. Works best with fuzzy placement turned off. 
 
