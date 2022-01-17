@@ -13,8 +13,9 @@ A crisp SVG theme with an anime feel.
 
 [Download](https://github.com/upsided/upsided-sabaki-themes/raw/main/packs/hikaru.asar)
 
-![Hikaru Screenshot](./hikaru/hikaru-screenshot.jpg)
+There is also [a non-animated version](https://github.com/jdriselvato/Hikaru-2-Sabaki-Theme) created by [jdriselvato](https://github.com/jdriselvato/). Thanks, jdriselvato!
 
+![Hikaru Screenshot](./hikaru/hikaru-screenshot.jpg)
 
 ## BadukTV
 Looks like a broadcast.
